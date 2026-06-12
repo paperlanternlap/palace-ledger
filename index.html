@@ -74,75 +74,77 @@ button{
 
 <h1>🏮 Palace Ledger Admin</h1>
 
+<div id="characters"></div>
+<script>
+
+const characters = [
+
+{
+player:"แป้ง",
+name:"หลี่ซูเหยา",
+role:"พระสนม",
+position:"ซู่อี้",
+palace:"บุปผา",
+rp:1200,
+favor:35,
+items:["หยกขาว x1","จดหมายลับ x2"]
+},
+
+{
+player:"เมย์",
+name:"จ้าวอิงเยว่",
+role:"นางกำนัล",
+position:"ซ่างกง",
+palace:"ชิงเหอ",
+rp:900,
+favor:12,
+items:["ผ้าไหม x3"]
+}
+
+];
+
+const container = document.getElementById("characters");
+
+characters.forEach(character => {
+
+container.innerHTML += `
+
 <div class="card">
 
-<h2>หลี่ซูเหยา</h2>
+<h2>${character.name}</h2>
 
-<div>ผู้เล่น : แป้ง</div>
+<div>ผู้เล่น : ${character.player}</div>
 
 <div class="role">
-
-พระสนม | ซู่อี้
-
+${character.role} | ${character.position}
 </div>
 
-<div>ตำหนัก : บุปผา</div>
-
-<div class="stat">RP : 1200</div>
-
-<div class="stat">โปรดปราน : 35</div>
+<div>ตำหนัก : ${character.palace}</div>
 
 <div class="stat">
+RP : ${character.rp}
+</div>
 
+<div class="stat">
+โปรดปราน : ${character.favor}
+</div>
+
+<div class="stat">
 ไอเท็ม :
-
 <ul>
-
-<li>หยกขาว x1</li>
-
-<li>จดหมายลับ x2</li>
-
+${character.items.map(item => `<li>${item}</li>`).join("")}
 </ul>
-
 </div>
 
 <button>แก้ไข</button>
 
 </div>
 
-<div class="card">
+`;
 
-<h2>จ้าวอิงเยว่</h2>
+});
 
-<div>ผู้เล่น : เมย์</div>
-
-<div class="role">
-
-นางกำนัล | ซ่างกง
-
-</div>
-
-<div>ตำหนัก : ตำหนักชิงเหอ</div>
-
-<div class="stat">RP : 900</div>
-
-<div class="stat">โปรดปราน : 12</div>
-
-<div class="stat">
-
-ไอเท็ม :
-
-<ul>
-
-<li>ผ้าไหม x3</li>
-
-</ul>
-
-</div>
-
-<button>แก้ไข</button>
-
-</div>
+</script>
 
 </body>
 
